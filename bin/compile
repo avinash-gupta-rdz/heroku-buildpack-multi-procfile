@@ -9,6 +9,7 @@ CACHE_DIR=$2
 ENV_DIR=$3
 
 PROCFILE=$(cat "${ENV_DIR}/PROCFILE")
+ROBOTXT=$(cat "${ENV_DIR}/ROBOTXT")
 
 if [[ -z "${PROCFILE}" ]]; then
     echo "PROCFILE was not set. Aborting" | indent
@@ -22,7 +23,7 @@ if ! [ $? ]; then
     # exit 1
 fi
 
-echo "Copied ${PROCFILE} as robots.txt successfully" | indent
+echo "Copied ${ROBOTXT} as robots.txt successfully" | indent
 
 cp "${BUILD_DIR}/${PROCFILE}" "${BUILD_DIR}/Procfile"
 
